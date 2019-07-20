@@ -13,9 +13,9 @@ export default function Header({ children }) {
                 <header role="banner" className="sticky top-0 bg-white shadow py-2">
                     <div className="container px-4 mx-auto flex justify-between items-center">
                         <div>
-                            <InertiaLink href="/home">
+                            <a href="/home">
                                 <Logo name={data.app.name} />
-                            </InertiaLink>
+                            </a>
                         </div>
                         <div>
                             <button className="flex items-center">

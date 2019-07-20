@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Http\Resources\PostResource;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Home');
+        return Inertia::render('Home', [
+            'posts' => PostResource::collection(Post::take(10)->get()),
+        ]);
     }
 }

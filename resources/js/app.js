@@ -1,3 +1,5 @@
+import './bootstrap';
+
 import Inertia from 'inertia-react';
 import React from 'react';
 import { render } from 'react-dom';

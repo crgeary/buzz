@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @auth<meta name="api-token" content="{{ auth()->user()->api_token }}">@endauth
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -30,7 +31,7 @@
     </style>
 
 </head>
-<body class="text-gray-800 bg-gray-100">
+<body class="text-gray-700 bg-white">
     
     @inertia
 

@@ -24,9 +24,7 @@ export default class Home extends Component {
                 <CreatePostForm />
                 <div>
                     {this.state.posts.map((post, i) => (
-                        <Post key={i} user={post.user}>
-                            {post.content}
-                        </Post>
+                        <Post key={i} user={post.user} post={post} />
                     ))}
                 </div>
             </Layout>

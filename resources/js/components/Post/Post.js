@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimeAgo from 'react-timeago';
 
 import Gravatar from '@/components/Gravatar';
 
@@ -14,12 +15,14 @@ export default class Post extends Component {
                     <div className="ml-2 leading-tight">
                         <div>
                             <span className="font-bold text-gray-900 text-xl">{this.props.user.name}</span>
-                            <span className="text-gray-500 ml-2">@user</span>
+                            <span className="text-gray-500 ml-2">@{this.props.user.username}</span>
                         </div>
-                        <time className="text-sm text-gray-700">49 mins</time>
+                        <div className="text-sm text-gray-700">
+                            <TimeAgo date={this.props.post.created_at} />
+                        </div>
                     </div>
                 </div>
-                {this.props.children}
+                {this.props.post.content}
             </div>
         );
     }

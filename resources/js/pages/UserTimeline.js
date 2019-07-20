@@ -17,6 +17,9 @@ export default class UserTimeline extends Component {
             });
         });
     }
+    componentWillUnmount() {
+        window.Echo.leaveChannel(`posts--user-${this.props.user.id}`);
+    }
     render() {
         return (
             <Layout>

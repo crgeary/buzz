@@ -18,6 +18,9 @@ export default class Home extends Component {
             });
         });
     }
+    componentWillUnmount() {
+        window.Echo.leaveChannel('posts');
+    }
     render() {
         return (
             <Layout>

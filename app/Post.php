@@ -58,6 +58,9 @@ class Post extends Model
     {
         $content = $this->content;
 
+        $content = htmlentities($content);
+        $content = nl2br($content);
+
         return preg_replace_callback("/\@([A-Za-z0-9]{1,15})/", function ($matches) {
             return sprintf(
                 '<a href="%1$s" class="text-purple-700">%2$s</a>',

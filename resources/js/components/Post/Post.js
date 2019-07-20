@@ -4,9 +4,6 @@ import TimeAgo from 'react-timeago';
 import Gravatar from '@/components/Gravatar';
 
 export default class Post extends Component {
-    constructor() {
-        super(...arguments);
-    }
     render() {
         return (
             <div className="mb-6 pb-6 border-b">
@@ -22,7 +19,7 @@ export default class Post extends Component {
                         </div>
                     </div>
                 </div>
-                {this.props.post.content}
+                <div dangerouslySetInnerHTML={{ __html: this.props.post.content }} />
             </div>
         );
     }

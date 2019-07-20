@@ -39,6 +39,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    /**
      * The individual posts that belong the user.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

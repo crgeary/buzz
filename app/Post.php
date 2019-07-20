@@ -48,4 +48,22 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Return a formatted version of the content
+     *
+     * @return string
+     */
+    public function getContentHtmlAttribute()
+    {
+        $content = $this->content;
+
+        return preg_replace_callback("/\@([A-Za-z0-9]{1,15})/", function ($matches) {
+            return sprintf(
+                '<a href="%1$s" class="text-purple-700">%2$s</a>',
+                route('user.show', ['user' => $matches[1]]),
+                $matches[0]
+            );
+        }, $content);
+    }
 }

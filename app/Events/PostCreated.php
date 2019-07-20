@@ -52,6 +52,9 @@ class PostCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('posts');
+        return [
+            new Channel('posts'),
+            new Channel(sprintf('posts--user-%d', $this->post->user_id)),
+        ];
     }
 }

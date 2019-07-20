@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Return the md5 of the users email address
+     *
+     * @return string
+     */
+    public function getEmailHashAttribute()
+    {
+        return md5($this->email);
+    }
 }

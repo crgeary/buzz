@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
                     'name' => config('app.name'),
                 ],
                 'auth' => [
-                    'user' => auth()->check() ? auth()->user()->only('id', 'name') : null
+                    'user' => auth()->check() ? auth()->user()->only('id', 'name', 'email_hash') : null
                 ]
             ];
         });

@@ -11,7 +11,7 @@ export default function Header({ children }) {
         <SharedContext.Consumer>
             {data => (
                 <header role="banner" className="sticky top-0 bg-white shadow py-2">
-                    <div className="container mx-auto flex justify-between items-center">
+                    <div className="container px-4 mx-auto flex justify-between items-center">
                         <div>
                             <InertiaLink href="/">
                                 <Logo name={data.app.name} />

@@ -8,14 +8,14 @@ export default function Layout({ children }) {
         
             <Header />
 
-            <div className="container mx-auto">
-                <div className="flex">
-                    <main role="main" className="flex-0 w-3/4">
+            <div className="container px-4 mx-auto">
+                <div className="lg:flex -mx-4 py-8">
+                    <main role="main" className="flex-0 px-4 lg:w-3/4">
 
                         {children}
 
                     </main>
-                    <div className="flex-0 w-1/4">
+                    <div className="flex-0 px-4 lg:w-1/4">
                         <footer role="contentinfo">
                             <div className="container mx-auto">
                                 &copy; {new Date().getFullYear()}

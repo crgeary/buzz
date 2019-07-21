@@ -61,6 +61,15 @@ class Post extends Model
         $content = htmlentities($content);
         $content = nl2br($content);
 
+        // links
+        $content = preg_replace_callback("#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#", function ($matches) {
+            return sprintf(
+                '<a href="%1$s" target="_blank" rel="noopener" class="text-purple-700">%1$s</a>',
+                $matches[0]
+            );
+        }, $content);
+
+        // usernames
         return preg_replace_callback("/\@([A-Za-z0-9]{1,15})/", function ($matches) {
             return sprintf(
                 '<a href="%1$s" class="text-purple-700">%2$s</a>',

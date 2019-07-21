@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
@@ -27,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Home', [
-            'posts' => PostResource::collection(Post::take(10)->get()),
+            'posts' => PostResource::collection(Post::take(10)->get())
         ]);
     }
 }

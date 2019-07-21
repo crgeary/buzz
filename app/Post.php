@@ -70,10 +70,10 @@ class Post extends Model
         }, $content);
 
         // usernames
-        return preg_replace_callback("/\@([A-Za-z0-9]{1,15})/", function ($matches) {
+        return preg_replace_callback("/\@([A-Za-z0-9]{1,15})|\#([A-Za-z0-9]{1,50})/", function ($matches) {
             return sprintf(
                 '<a href="%1$s" class="text-purple-700">%2$s</a>',
-                route('user.show', ['user' => $matches[1]]),
+                isset($matches[2]) ? route('topic.show', ['user' => $matches[2]]) : route('user.show', ['user' => $matches[1]]),
                 $matches[0]
             );
         }, $content);

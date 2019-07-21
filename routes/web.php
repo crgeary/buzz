@@ -16,4 +16,5 @@ Route::get('/', 'WelcomeController')->name('welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/topic/{topic}', 'TopicController@show')->name('topic.show');
 Route::get('/{user}', 'UserController@show')->name('user.show');

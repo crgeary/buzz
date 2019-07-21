@@ -52,9 +52,17 @@ class PostCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return [
+        $channels = [
             new Channel('posts'),
             new Channel(sprintf('posts--user-%d', $this->post->user_id)),
         ];
+
+        if (preg_match_all("/\#([A-Za-z0-9]{1,50})/", $this->post->content, $matches)) {
+            foreach ($matches[1] as $topic) {
+                $channels[] = new Channel(sprintf('posts--topic-%s', $topic));
+            }
+        }
+
+        return $channels;
     }
 }

@@ -11,14 +11,14 @@ export default class TopicTimeline extends Component {
         }
     }
     componentWillMount() {
-        window.Echo.channel(`posts--topic-${this.props.topic}`).listen('PostCreated', (e) => {
+        window.Echo.channel(`posts--topic-${this.props.topic.toLowerCase()}`).listen('PostCreated', (e) => {
             this.setState({
                 posts: [e.post, ...this.state.posts]
             });
         });
     }
     componentWillUnmount() {
-        window.Echo.leaveChannel(`posts--topic-${this.props.topic}`);
+        window.Echo.leaveChannel(`posts--topic-${this.props.topic.toLowerCase()}`);
     }
     render() {
         return (

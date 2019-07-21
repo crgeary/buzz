@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Post;
+use Illuminate\Support\Str;
 use App\Http\Resources\PostResource;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -59,7 +60,7 @@ class PostCreated implements ShouldBroadcast
 
         if (preg_match_all("/\#([A-Za-z0-9]{1,50})/", $this->post->content, $matches)) {
             foreach ($matches[1] as $topic) {
-                $channels[] = new Channel(sprintf('posts--topic-%s', $topic));
+                $channels[] = new Channel(sprintf('posts--topic-%s', Str::lower($topic)));
             }
         }
 

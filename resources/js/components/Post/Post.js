@@ -11,7 +11,7 @@ export default class Post extends Component {
                     <Gravatar hash={this.props.user.email_hash} size="44" />
                     <div className="ml-2 leading-tight">
                         <div>
-                            <span className="font-bold text-gray-900 text-xl">{this.props.user.name}</span>
+                            <a href={this.props.user.profile_url} className="font-bold text-gray-900 text-xl">{this.props.user.name}</a>
                             <span className="text-gray-500 ml-2">@{this.props.user.username}</span>
                         </div>
                         <div className="text-sm text-gray-700">

@@ -19,6 +19,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'username' => $this->username,
             'email_hash' => $this->email_hash,
+            'profile_url' => route('user.show', ['user' => $this]),
         ];
     }
 }

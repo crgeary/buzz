@@ -33,7 +33,7 @@ class TopicController extends Controller
 
         return Inertia::render('TopicTimeline', [
             'topic' => $topic,
-            'posts' => PostResource::collection(Post::where('content', 'REGEXP', "\#{$topic}[[:>:]]")->take(10)->get()),
+            'posts' => PostResource::collection(Post::where('content', 'REGEXP', "\#{$topic}[[:>:]]")->take(50)->get()),
         ]);
     }
 }

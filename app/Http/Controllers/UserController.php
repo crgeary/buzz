@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         return Inertia::render('UserTimeline', [
             'user' => new UserResource($user),
-            'posts' => PostResource::collection(Post::where('user_id', $user->id)->take(10)->get()),
+            'posts' => PostResource::collection(Post::where('user_id', $user->id)->take(50)->get()),
         ]);
     }
 }

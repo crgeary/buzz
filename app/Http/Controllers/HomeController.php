@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Home', [
-            'posts' => PostResource::collection(Post::take(10)->get()),
+            'posts' => PostResource::collection(Post::take(50)->get()),
         ]);
     }
 }
